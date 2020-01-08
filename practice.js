@@ -27,6 +27,11 @@
   Then invoke the callback function, passing in the first element in the array as it's argument.
 */
 
+function first(arr, cb){
+  arr[0], cb(arr[0]); 
+  cb(arr.length-1); 
+  
+  }
 // Code Here 
 
 // Do not edit the code below.
@@ -47,6 +52,10 @@ first(names, function(firstName){
   Then invoke the callback, passing in the last element in the array as the argument.
 */
 
+function last(arr, cb){
+  arr[arr.length-1], cb(arr[arr.length-1]);
+  cb(arr.length-1);
+}
 //Code Here
 
 // Do not edit the code below.
@@ -65,6 +74,11 @@ last(names, function(lastName){
   Invoke the callback, passing in the product of the two numbers multiplied as the argument. 
 */
 
+function multiply(num1, num2, cb){
+  cb(num1, num2)
+return cb(num1 * num2)
+
+}
 //Code Here
 
 // Do not edit the code below.
@@ -84,6 +98,9 @@ multiply(4, 3, function(answer){
   If the name does not exist, invoke the callback with false as the argument.
 */
 
+const contains = (array2, name, cb2) => {
+  array2.map(val => val === name ? cb2(true): cb2(false));
+};
 //Code Here 
 
 // Do not edit the code below.
@@ -105,6 +122,15 @@ contains(names, 'Colt', function(result){
   Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
 */
 
+function uniq(arr, cb) {
+  let uniqueNames = [];
+  for(let i = 0; i < arr.length; i++) {
+    if(uniqueNames.includes(arr[i]) === false) {
+      uniqueNames.push(arr[i]);
+    }
+  }
+  cb (uniqueNames);
+}
 //Code Here
 
 // Do not edit the code below.
@@ -122,6 +148,11 @@ uniq(names, function(uniqArr){
   For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
 */
 
+function each(arr, cb){
+  for (i = 0; i < arr.length; i++){
+    cb(arr[i], i)
+}
+}
 //Code Here 
 
 // Do not edit the code below.
@@ -139,6 +170,13 @@ each(names, function(item, indice){
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
+function getUserById(users, id, cb) {
+  for (let i = 0; i < users.length; i++) {
+    if (users [i].id = id) {
+    cb(users[i])
+    }
+  }
+}
 // Code here
 
 // Do not edit the code below.
